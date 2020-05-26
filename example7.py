@@ -10,7 +10,7 @@ async def cook(food, t):
 
 async def main():
     coros = [cook('Rice', 5), cook('Noodle', 3), cook('Curry', 1)]
-    results = await asyncio.wait(coros, return_when='FIRST_COMPLETED', timeout=0.5)
+    results = await asyncio.wait(coros, return_when='FIRST_COMPLETED')
     print(f'Completed task: {len(results[0])}')
     for completed_task in results[0]:
         print(f' - {completed_task.result()}')
